@@ -1,0 +1,32 @@
+﻿<Window x:Class="WPFUSCurrency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUSCurrency"
+        mc:Ignorable="d"
+        Title="US Currency Repository" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btnPenny" Content="Add Penny" HorizontalAlignment="Left" Margin="56,236,0,0" VerticalAlignment="Top" Width="91" Click="btnPenny_Click"/>
+        <Button x:Name="btnNickel" Content="Add Nickel" HorizontalAlignment="Left" Margin="219,236,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.478,0.887" Click="btnNickel_Click"/>
+        <Button x:Name="btnDime" Content="Add Dime" HorizontalAlignment="Left" Margin="379,236,0,0" VerticalAlignment="Top" Width="87" Click="btnDime_Click"/>
+        <Button x:Name="btnQuarter" Content="Add Quarter" HorizontalAlignment="Left" Margin="56,276,0,0" VerticalAlignment="Top" Width="91" Click="btnQuarter_Click"/>
+        <Button x:Name="btnHalfDollar" Content="Add HalfDollar" HorizontalAlignment="Left" Margin="219,276,0,0" VerticalAlignment="Top" Width="88" Click="btnHalfDollar_Click"/>
+        <Button x:Name="btnDollar" Content="Add Dollar" HorizontalAlignment="Left" Margin="379,276,0,0" VerticalAlignment="Top" Width="87" Click="btnDollar_Click"/>
+        <Label x:Name="lblPenny" Content="Pennys:" HorizontalAlignment="Left" Margin="77,28,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNickel" Content="Nickels:" HorizontalAlignment="Left" Margin="236,28,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDime" Content="Dimes:" HorizontalAlignment="Left" Margin="409,28,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblQuarter" Content="Quarters:" HorizontalAlignment="Left" Margin="77,90,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblHalfDollar" Content="HalfDollars:" HorizontalAlignment="Left" Margin="236,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.573,-0.177"/>
+        <Label x:Name="lblDollar" Content="Dollars:" HorizontalAlignment="Left" Margin="409,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.432,0.275"/>
+        <Label x:Name="lblTotal" Content="Total Value:" HorizontalAlignment="Left" Margin="236,149,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtPenny" HorizontalAlignment="Left" Margin="78,59,0,0" TextWrapping="Wrap" Text="{Binding Pennys}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtNickel" HorizontalAlignment="Left" Margin="236,59,0,0" TextWrapping="Wrap" Text="{Binding Nickels}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtDime" HorizontalAlignment="Left" Margin="409,59,0,0" TextWrapping="Wrap" Text="{Binding Dimes}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtQuarter" HorizontalAlignment="Left" Margin="78,121,0,0" TextWrapping="Wrap" Text="{Binding Quarters}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtHalfDollar" HorizontalAlignment="Left" Margin="236,121,0,0" TextWrapping="Wrap" Text="{Binding HalfDollars}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtDollar" HorizontalAlignment="Left" Margin="409,121,0,0" TextWrapping="Wrap" Text="{Binding Dollars}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtTotal" HorizontalAlignment="Left" Margin="245,180,0,0" TextWrapping="Wrap" Text="{Binding TotalValue}" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
