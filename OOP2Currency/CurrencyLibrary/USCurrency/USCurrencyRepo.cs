@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CurrencyLibrary.Interfaces;
-using System.Linq;
 
 namespace CurrencyLibrary.USCurrency
 {
@@ -15,7 +14,7 @@ namespace CurrencyLibrary.USCurrency
 
         }
 
-        private static List<ICoin> GetCoinList()
+        public static List<ICoin> GetCoinList()
         {
             ICoin nickel = new Nickel();
             ICoin penny = new Penny();

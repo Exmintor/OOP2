@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyLibrary.USCurrency;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPFMidterm.ViewModels;
 
 namespace WPFMidterm
 {
@@ -19,9 +21,17 @@ namespace WPFMidterm
     /// </summary>
     public partial class RepoWindow : Window
     {
-        public RepoWindow()
+        RepoViewModel viewModel;
+        public RepoWindow(USCurrencyRepo repo)
         {
             InitializeComponent();
+            viewModel = new RepoViewModel(repo);
+        }
+
+        private void ucRepo_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.ucRepo.DataContext = viewModel;
+            ucRepo.cbCoinName.SelectedIndex = 0;
         }
     }
 }

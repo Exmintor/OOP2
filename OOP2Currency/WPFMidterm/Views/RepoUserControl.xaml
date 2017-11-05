@@ -5,8 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFMidterm.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" DataContext="{Binding RepoViewModel}">
     <Grid>
-            
+        <StackPanel Margin="8">
+            <StackPanel Orientation="Horizontal" Margin="8">
+                <Label>Total:</Label>
+                <TextBlock x:Name="txtTotalValue" Text="{Binding TotalValue, StringFormat=' {0:c}', Mode=OneWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Control">
+                        <Setter Property="Margin" Value="5,0,5,0" />
+                    </Style>
+                </StackPanel.Resources>
+                <ComboBox x:Name="cbCoinName" Margin="5,0,5,0" ItemsSource="{Binding CoinsForComboBox}" DisplayMemberPath="Name" SelectedItem="{Binding CoinName, Mode=TwoWay}" ></ComboBox>
+                <TextBox x:Name="tbNumCoins" Margin="5,0,5,0"  Text="{Binding CoinNumber, Mode=TwoWay}"></TextBox>
+                <Button x:Name="AddCoin" Command="{Binding AddCoinCommand}"  Margin="5,0,5,0" >Add Coin</Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

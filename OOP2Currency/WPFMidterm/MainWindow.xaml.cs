@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyLibrary.USCurrency;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,24 @@ namespace WPFMidterm
     /// </summary>
     public partial class MainWindow : Window
     {
+        USCurrencyRepo repo;
+
         public MainWindow()
         {
             InitializeComponent();
+            repo = new USCurrencyRepo();
+        }
+
+        private void btnMakeChange_Click(object sender, RoutedEventArgs e)
+        {
+            MakeChangeWindow makeChange = new MakeChangeWindow(repo);
+            makeChange.Show();
+        }
+
+        private void btnRepo_Click(object sender, RoutedEventArgs e)
+        {
+            RepoWindow repoWindow = new RepoWindow(repo);
+            repoWindow.Show();
         }
     }
 }

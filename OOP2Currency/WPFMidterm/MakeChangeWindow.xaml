@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFMidterm"
         mc:Ignorable="d"
-        Title="MakeChangeWindow" Height="300" Width="300">
+        Title="MakeChangeWindow" Height="300" Width="300"
+        xmlns:views ="clr-namespace:WPFMidterm.Views">
     <Grid>
-        
+        <views:MakeChangeUserControl x:Name="ucMakeChange" Loaded="ucMakeChange_Loaded"/>
     </Grid>
 </Window>

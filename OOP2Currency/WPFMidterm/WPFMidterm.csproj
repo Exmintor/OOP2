@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AddCoinCommand.cs" />
+    <Compile Include="Commands\BasicCommand.cs" />
+    <Compile Include="Commands\MakeChangeCommand.cs" />
     <Compile Include="RepoWindow.xaml.cs">
       <DependentUpon>RepoWindow.xaml</DependentUpon>
     </Compile>
