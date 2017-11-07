@@ -57,12 +57,16 @@
     <Compile Include="Commands\AddCoinCommand.cs" />
     <Compile Include="Commands\BasicCommand.cs" />
     <Compile Include="Commands\MakeChangeCommand.cs" />
+    <Compile Include="Commands\NewCommand.cs" />
+    <Compile Include="Commands\OpenCommand.cs" />
+    <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="RepoWindow.xaml.cs">
       <DependentUpon>RepoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MakeChangeViewModel.cs" />
     <Compile Include="ViewModels\RepoViewModel.cs" />
+    <Compile Include="ViewModels\SaveableUSCurrencyRepo.cs" />
     <Compile Include="Views\MakeChangeUserControl.xaml.cs">
       <DependentUpon>MakeChangeUserControl.xaml</DependentUpon>
     </Compile>

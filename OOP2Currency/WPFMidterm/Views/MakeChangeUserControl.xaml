@@ -7,18 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" DataContext="{Binding MakeChangeViewModel}">
     <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Amount:</Label>
-                <TextBox Text="{Binding MoneyAmount, Mode=TwoWay}"/>
-                <Button Command="{Binding MakeChangeCommand}" >Make Change</Button>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="Save" Command="{Binding SaveCommand}" />
+                </MenuItem>
+            </Menu>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Amount:</Label>
+                    <TextBox Text="{Binding MoneyAmount, Mode=TwoWay}"/>
+                    <Button Command="{Binding MakeChangeCommand}" >Make Change</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <ListView x:Name="lvCoins" ItemsSource="{Binding Coins}" DisplayMemberPath="Name"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ListView x:Name="lvCoins" ItemsSource="{Binding Coins}" DisplayMemberPath="Name"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button >Save</Button>
-            </StackPanel>
-        </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

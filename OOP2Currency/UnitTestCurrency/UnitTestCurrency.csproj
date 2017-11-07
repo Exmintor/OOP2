@@ -45,6 +45,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewTestsFromJeff\NickelTests.cs" />
+    <Compile Include="NewTestsFromJeff\PennyTests.cs" />
+    <Compile Include="NewTestsFromJeff\UnitTestCurrencyRepoViewModel.cs" />
+    <Compile Include="NewTestsFromJeff\UnitTestMakeChangeViewModel.cs" />
+    <Compile Include="NewTestsFromJeff\UnitTestSaveableCurrencyRepo.cs" />
+    <Compile Include="NewTestsFromJeff\USCoinTests.cs" />
+    <Compile Include="NewTestsFromJeff\USCurrencyRepoTests.cs" />
     <Compile Include="PennyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="USCoinTests.cs" />
@@ -57,6 +64,10 @@
     <ProjectReference Include="..\CurrencyLibrary\CurrencyLibrary.csproj">
       <Project>{d6399d03-9652-42ff-bf69-32824e0fc230}</Project>
       <Name>CurrencyLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFMidterm\WPFMidterm.csproj">
+      <Project>{fc8c5ddf-4314-4dc0-999d-835f9e2ed5dd}</Project>
+      <Name>WPFMidterm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

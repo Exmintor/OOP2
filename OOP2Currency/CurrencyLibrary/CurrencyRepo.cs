@@ -9,10 +9,14 @@ namespace CurrencyLibrary
 {
     public class CurrencyRepo : ICurrencyRepo
     {
-        public List<ICoin> Coins { get; private set; }
+        public List<ICoin> Coins { get; protected set; }
         public CurrencyRepo()
         {
             Coins = new List<ICoin>();
+        }
+        public CurrencyRepo(List<ICoin> coinList)
+        {
+            Coins = coinList;
         }
 
         public string About()

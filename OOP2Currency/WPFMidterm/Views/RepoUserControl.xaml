@@ -7,21 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" DataContext="{Binding RepoViewModel}">
     <Grid>
-        <StackPanel Margin="8">
-            <StackPanel Orientation="Horizontal" Margin="8">
-                <Label>Total:</Label>
-                <TextBlock x:Name="txtTotalValue" Text="{Binding TotalValue, StringFormat=' {0:c}', Mode=OneWay}" />
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="New" Command="{Binding NewCommand}" />
+                    <MenuItem Header="Open" Command="{Binding OpenCommand}" />
+                    <MenuItem Header="Save" Command="{Binding SaveCommand}" />
+                </MenuItem>
+            </Menu>
+            <StackPanel Margin="8">
+                <StackPanel Orientation="Horizontal" Margin="8">
+                    <Label>Total:</Label>
+                    <TextBlock x:Name="txtTotalValue" Text="{Binding TotalValue, StringFormat=' {0:c}', Mode=OneWay}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Control">
+                            <Setter Property="Margin" Value="5,0,5,0" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <ComboBox x:Name="cbCoinName" Margin="5,0,5,0" ItemsSource="{Binding CoinsForComboBox}" DisplayMemberPath="Name" SelectedItem="{Binding CoinName, Mode=TwoWay}" ></ComboBox>
+                    <TextBox x:Name="tbNumCoins" Margin="5,0,5,0"  Text="{Binding CoinNumber, Mode=TwoWay}"></TextBox>
+                    <Button x:Name="AddCoin" Command="{Binding AddCoinCommand}"  Margin="5,0,5,0" >Add Coin</Button>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="Control">
-                        <Setter Property="Margin" Value="5,0,5,0" />
-                    </Style>
-                </StackPanel.Resources>
-                <ComboBox x:Name="cbCoinName" Margin="5,0,5,0" ItemsSource="{Binding CoinsForComboBox}" DisplayMemberPath="Name" SelectedItem="{Binding CoinName, Mode=TwoWay}" ></ComboBox>
-                <TextBox x:Name="tbNumCoins" Margin="5,0,5,0"  Text="{Binding CoinNumber, Mode=TwoWay}"></TextBox>
-                <Button x:Name="AddCoin" Command="{Binding AddCoinCommand}"  Margin="5,0,5,0" >Add Coin</Button>
-            </StackPanel>
-        </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

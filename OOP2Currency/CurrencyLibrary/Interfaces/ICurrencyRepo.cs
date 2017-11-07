@@ -17,6 +17,6 @@ namespace CurrencyLibrary.Interfaces
         ICurrencyRepo MakeChange(double amountTendered, double totalCost);
         ICoin RemoveCoin(ICoin coin);
         double TotalValue();
-
+        ICurrencyRepo Reduce();
     }
 }

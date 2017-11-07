@@ -1,5 +1,6 @@
 ﻿ using CurrencyLibrary.Interfaces;
 using CurrencyLibrary.USCurrency;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -75,12 +76,54 @@ namespace WPFMidterm.ViewModels
             }
         }
 
+        private string filePath = string.Empty;
+        public string FilePath
+        {
+            get
+            {
+                return filePath;
+            }
+            private set
+            {
+                filePath = value;
+            }
+        }
+
+        private NewCommand newCommand;
+        public ICommand NewCommand
+        {
+            get
+            {
+                return newCommand;
+            }
+        }
+        private OpenCommand openCommand;
+        public ICommand OpenCommand
+        {
+            get
+            {
+                return openCommand;
+            }
+        }
+        private SaveCommand saveCommand;
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return saveCommand;
+            }
+        }
+
         public RepoViewModel(USCurrencyRepo repo)
         {
             this.repository = repo;
             addCoinCommand = new AddCoinCommand(AddCoins);
             coinsForComboBox = new ObservableCollection<ICoin>(USCurrencyRepo.GetCoinList());
             CoinName = coinsForComboBox.First().ToString();
+
+            newCommand = new NewCommand(NewRepo);
+            openCommand = new OpenCommand(OpenRepo);
+            saveCommand = new SaveCommand(SaveRepo);
         }
 
         private void AddCoins()
@@ -90,6 +133,50 @@ namespace WPFMidterm.ViewModels
                 repository.AddCoin(GetCoinByName(coinName));
             }
             RaisePropertyChangedEvent("TotalValue");
+        }
+
+        private void NewRepo()
+        {
+            repository = new USCurrencyRepo();
+            RaisePropertyChangedEvent("TotalValue");
+            filePath = string.Empty;
+        }
+        private void SaveRepo()
+        {
+            if(string.IsNullOrEmpty(FilePath))
+            {
+                SaveAsRepo();
+            }
+            else
+            {
+                SaveableUSCurrencyRepo repo = new SaveableUSCurrencyRepo(repository);
+                repo.SaveRepo(FilePath);
+            }
+        }
+        private void SaveAsRepo()
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Repository Files(*.repo)|*.repo";
+
+            if (dialog.ShowDialog() == true)
+            {
+                FilePath = dialog.FileName;
+                SaveableUSCurrencyRepo repo = new SaveableUSCurrencyRepo(repository);
+                repo.SaveRepo(FilePath);
+            }
+        }
+        private void OpenRepo()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Repository Files(*.repo)|*.repo";
+
+            if(dialog.ShowDialog() == true)
+            {
+                SaveableUSCurrencyRepo repo = new SaveableUSCurrencyRepo();
+                FilePath = dialog.FileName;
+                repository = repo.LoadRepo(FilePath);
+                RaisePropertyChangedEvent("TotalValue");
+            }
         }
 
         private ICoin GetCoinByName(string name)

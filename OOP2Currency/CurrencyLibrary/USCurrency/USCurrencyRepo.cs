@@ -13,6 +13,10 @@ namespace CurrencyLibrary.USCurrency
         {
 
         }
+        public USCurrencyRepo(List<ICoin> coinList) : base(coinList)
+        {
+
+        }
 
         public static List<ICoin> GetCoinList()
         {

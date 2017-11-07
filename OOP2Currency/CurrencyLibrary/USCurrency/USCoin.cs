@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CurrencyLibrary.USCurrency
 {
+    //[Serializable]
     public enum USCoinMintMark { D, P, S, W }
+    [Serializable]
     public abstract class USCoin : Coin
     {
         public USCoinMintMark MintMark { get; private set; }
@@ -22,6 +25,16 @@ namespace CurrencyLibrary.USCurrency
             this.Year = DateTime.Now.Year;
             this.Name = $"US {this.GetType().Name}";
         }
+        public USCoin(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+            //MintMark = (USCoinMintMark)info.GetValue("MintMark", typeof(USCoinMintMark));
+        }
+
+        //public void GetObjectData(SerializationInfo info, StreamingContext context)
+        //{
+        //    info.AddValue("MintMark", MintMark);
+        //    base.GetObjectData(info, context);
+        //}
 
         public override string About()
         {
