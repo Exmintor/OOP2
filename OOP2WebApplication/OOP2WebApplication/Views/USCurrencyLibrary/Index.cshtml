@@ -1,0 +1,26 @@
+﻿@model CurrencyLibrary.USCurrency.USCurrencyRepo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>USCurrencyRepo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @{
+                foreach(var coin in Model.Coins)
+                {
+                    @coin.Name
+                }
+            }
+        </dt>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
