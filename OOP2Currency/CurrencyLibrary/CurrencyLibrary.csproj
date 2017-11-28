@@ -46,6 +46,16 @@
     <Compile Include="Interfaces\ICoin.cs" />
     <Compile Include="Interfaces\ICurrency.cs" />
     <Compile Include="Interfaces\ICurrencyRepo.cs" />
+    <Compile Include="UKCurrency\FiftyPence.cs" />
+    <Compile Include="UKCurrency\FivePence.cs" />
+    <Compile Include="UKCurrency\OnePence.cs" />
+    <Compile Include="UKCurrency\OnePoundCoin.cs" />
+    <Compile Include="UKCurrency\TenPence.cs" />
+    <Compile Include="UKCurrency\TwentyPence.cs" />
+    <Compile Include="UKCurrency\TwoPence.cs" />
+    <Compile Include="UKCurrency\TwoPoundCoin.cs" />
+    <Compile Include="UKCurrency\UKCoin.cs" />
+    <Compile Include="UKCurrency\UKCurrencyRepo.cs" />
     <Compile Include="USCurrency\Dime.cs" />
     <Compile Include="USCurrency\DollarCoin.cs" />
     <Compile Include="USCurrency\HalfDollar.cs" />
