@@ -1,0 +1,20 @@
+﻿<Window x:Class="WPFClassLibraryFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFClassLibraryFinal"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label x:Name="lblDestination" Content="Destination Zip Code" HorizontalAlignment="Left" Margin="184,35,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDestination" HorizontalAlignment="Left" Height="23" Margin="186,66,0,0" TextWrapping="Wrap" Text="{Binding DestinationZip, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblChooseService" Content="Choose Shipping Service" HorizontalAlignment="Left" Margin="176,122,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbShippingServices" HorizontalAlignment="Left" Margin="143,153,0,0" VerticalAlignment="Top" Width="202" ItemsSource="{Binding ServiceForComboBox}" SelectedItem="{Binding ServiceName, Mode=TwoWay}"/>
+        <Label x:Name="lblNumRefuels" Content="Number of Refuels" HorizontalAlignment="Left" Margin="78,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.236,0.292"/>
+        <Label x:Name="lblDistance" Content="Distance" HorizontalAlignment="Left" Margin="347,231,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtNumRefuels" HorizontalAlignment="Left" Margin="127,266,0,0" TextWrapping="Wrap" Text="{Binding NumRefuels, Mode=OneWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="txtDistance" HorizontalAlignment="Left" Margin="375,266,0,0" TextWrapping="Wrap" Text="{Binding Distance, Mode=OneWay}" VerticalAlignment="Top" RenderTransformOrigin="0.102,-2.321"/>
+
+    </Grid>
+</Window>
